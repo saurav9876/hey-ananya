@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glowing Candle with Flares</title>
+    <title>Glowing Candle with Rising Flares</title>
     <style>
         body {
             display: flex;
@@ -80,11 +80,11 @@
 
         @keyframes rise {
             0% {
-                transform: translateY(0) scale(1);
+                transform: translate(-50%, 0) scale(1);
                 opacity: 1;
             }
             100% {
-                transform: translateY(-200px) scale(0.5);
+                transform: translate(-50%, -200px) scale(0.5);
                 opacity: 0;
             }
         }
@@ -93,11 +93,31 @@
 <body>
     <div class="candle"></div>
 
-    <!-- Flares -->
-    <div class="flare" style="left: 50%; animation-delay: 0s;"></div>
-    <div class="flare" style="left: 48%; animation-delay: 1s;"></div>
-    <div class="flare" style="left: 52%; animation-delay: 2s;"></div>
-    <div class="flare" style="left: 49%; animation-delay: 0.5s;"></div>
-    <div class="flare" style="left: 51%; animation-delay: 1.5s;"></div>
+    <script>
+        // Function to create a flare
+        function createFlare() {
+            const flare = document.createElement('div');
+            flare.classList.add('flare');
+
+            // Randomize horizontal position slightly around the candle flame
+            const leftOffset = 50 + (Math.random() - 0.5) * 10; // 50% ± 5%
+            flare.style.left = `${leftOffset}%`;
+
+            // Randomize animation duration for variety
+            const duration = 2 + Math.random() * 2; // 2-4 seconds
+            flare.style.animationDuration = `${duration}s`;
+
+            // Add flare to the body
+            document.body.appendChild(flare);
+
+            // Remove flare after animation ends
+            flare.addEventListener('animationend', () => {
+                flare.remove();
+            });
+        }
+
+        // Create flares at regular intervals
+        setInterval(createFlare, 200); // Create a flare every 200ms
+    </script>
 </body>
 </html>
