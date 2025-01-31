@@ -1,158 +1,110 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glowing Candle with Valentine's Message</title>
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+        }
+        h1 {
+            font-size: 3rem;
+            color: red;
+        }
+        .btn {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            background-color: white;
+            border: 2px solid red;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will You Be My Valentine? 💖</h1>
+    <a href="candle.html"><button class="btn">Click for a Surprise</button></a>
+</body>
+</html>
+
+<!-- candle.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Burning Candle for You</title>
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #1a1a1a;
-            margin: 0;
-            overflow: hidden;
+            background-color: black;
+            color: white;
+            text-align: center;
             position: relative;
-            font-family: 'Great Vibes', cursive;
         }
-
         .candle {
             position: relative;
-            width: 80px; /* Bigger candle */
-            height: 200px; /* Bigger candle */
-            background-color: #fff3e0;
-            border-radius: 15px 15px 0 0; /* Rounded edges */
-            box-shadow: 0 0 15px rgba(255, 223, 186, 0.8);
+            width: 40px;
+            height: 120px;
+            background-color: white;
+            border-radius: 10px;
         }
-
-        .candle::before {
-            content: '';
+        .flame {
             position: absolute;
-            top: -30px; /* Adjusted for bigger candle */
+            top: -45px;
             left: 50%;
             transform: translateX(-50%);
-            width: 30px; /* Bigger flame */
-            height: 60px; /* Bigger flame */
-            background-color: #ffcc80;
+            width: 30px;
+            height: 50px;
+            background: radial-gradient(circle, yellow 30%, orange 60%, red 90%);
             border-radius: 50% 50% 0 0;
-            box-shadow: 0 0 30px rgba(255, 204, 128, 0.8);
-            animation: flicker 1.5s infinite alternate;
+            animation: flicker 0.15s infinite alternate ease-in-out, glow 1s infinite alternate;
         }
-
-        .candle::after {
-            content: '';
+        .flares {
             position: absolute;
-            top: -15px; /* Adjusted for bigger candle */
+            top: -60px;
             left: 50%;
             transform: translateX(-50%);
-            width: 15px; /* Bigger inner flame */
-            height: 30px; /* Bigger inner flame */
-            background-color: #ffa726;
-            border-radius: 50% 50% 0 0;
-            box-shadow: 0 0 20px rgba(255, 167, 38, 0.8);
-            animation: flicker 1s infinite alternate;
+            width: 60px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(255, 255, 150, 0.8) 10%, rgba(255, 140, 0, 0) 70%);
+            opacity: 0.7;
+            animation: rise 3s infinite linear;
         }
-
-        .flare {
-            position: absolute;
-            width: 10px; /* Bigger flares */
-            height: 10px; /* Bigger flares */
-            background-color: #ffa726;
-            border-radius: 50%;
-            box-shadow: 0 0 20px rgba(255, 167, 38, 0.8);
-            opacity: 1;
-            animation: rise 3s infinite ease-in;
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); opacity: 1; }
+            50% { transform: translateX(-52%) scale(1.05); opacity: 0.9; }
+            100% { transform: translateX(-50%) scale(1); opacity: 1; }
         }
-
-        .valentine-message {
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px rgba(255, 165, 0, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(255, 140, 0, 0.8); }
+        }
+        @keyframes rise {
+            0% { opacity: 0.7; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-100px); }
+        }
+        .valentine-text {
             position: absolute;
             bottom: 20px;
-            text-align: center;
-            color: #ff4d4d;
-            font-size: 2.5rem;
-            text-shadow: 0 0 10px rgba(255, 77, 77, 0.8), 0 0 20px rgba(255, 77, 77, 0.8);
-            animation: glow 2s infinite alternate;
-        }
-
-        @keyframes flicker {
-            0% {
-                transform: translateX(-50%) scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: translateX(-50%) scale(1.1);
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateX(-50%) scale(0.9);
-                opacity: 1;
-            }
-        }
-
-        @keyframes rise {
-            0% {
-                transform: translate(-50%, 0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(-50%, -200px) scale(0.5);
-                opacity: 0;
-            }
-        }
-
-        @keyframes glow {
-            0% {
-                opacity: 0.8;
-                text-shadow: 0 0 10px rgba(255, 77, 77, 0.8), 0 0 20px rgba(255, 77, 77, 0.8);
-            }
-            100% {
-                opacity: 1;
-                text-shadow: 0 0 20px rgba(255, 77, 77, 0.8), 0 0 40px rgba(255, 77, 77, 0.8);
-            }
+            font-size: 2rem;
+            color: pink;
         }
     </style>
-    <!-- Add Google Font for a romantic look -->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="candle"></div>
-
-    <!-- Valentine's Message -->
-    <div class="valentine-message">
-        Would you be my Valentine this year? Please 🥺
+    <div class="candle">
+        <div class="flame"></div>
+        <div class="flares"></div>
     </div>
-
-    <script>
-        // Function to create a flare
-        function createFlare() {
-            const flare = document.createElement('div');
-            flare.classList.add('flare');
-
-            // Position the flare at the base of the candle flame
-            flare.style.left = `${50 + (Math.random() - 0.5) * 10}%`; // Randomize horizontal position
-            flare.style.top = `-30px`; // Start from the base of the flame (adjusted for bigger candle)
-
-            // Randomize animation duration for variety
-            const duration = 2 + Math.random() * 2; // 2-4 seconds
-            flare.style.animationDuration = `${duration}s`;
-
-            // Randomize flare size for a more natural look
-            const size = 8 + Math.random() * 4; // 8-12px
-            flare.style.width = `${size}px`;
-            flare.style.height = `${size}px`;
-
-            // Add flare to the body
-            document.body.appendChild(flare);
-
-            // Remove flare after animation ends
-            flare.addEventListener('animationend', () => {
-                flare.remove();
-            });
-        }
-
-        // Create flares at a faster rate
-        setInterval(createFlare, 50); // Create a flare every 50ms
-    </script>
+    <div class="valentine-text">Will You Be My Valentine? 🥺💖</div>
 </body>
 </html>
