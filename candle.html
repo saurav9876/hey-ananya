@@ -19,48 +19,48 @@
 
         .candle {
             position: relative;
-            width: 50px;
-            height: 150px;
+            width: 80px; /* Bigger candle */
+            height: 200px; /* Bigger candle */
             background-color: #fff3e0;
-            border-radius: 10px 10px 0 0;
-            box-shadow: 0 0 10px rgba(255, 223, 186, 0.8);
+            border-radius: 15px 15px 0 0; /* Rounded edges */
+            box-shadow: 0 0 15px rgba(255, 223, 186, 0.8);
         }
 
         .candle::before {
             content: '';
             position: absolute;
-            top: -20px;
+            top: -30px; /* Adjusted for bigger candle */
             left: 50%;
             transform: translateX(-50%);
-            width: 20px;
-            height: 40px;
+            width: 30px; /* Bigger flame */
+            height: 60px; /* Bigger flame */
             background-color: #ffcc80;
             border-radius: 50% 50% 0 0;
-            box-shadow: 0 0 20px rgba(255, 204, 128, 0.8);
+            box-shadow: 0 0 30px rgba(255, 204, 128, 0.8);
             animation: flicker 1.5s infinite alternate;
         }
 
         .candle::after {
             content: '';
             position: absolute;
-            top: -10px;
+            top: -15px; /* Adjusted for bigger candle */
             left: 50%;
             transform: translateX(-50%);
-            width: 10px;
-            height: 20px;
+            width: 15px; /* Bigger inner flame */
+            height: 30px; /* Bigger inner flame */
             background-color: #ffa726;
             border-radius: 50% 50% 0 0;
-            box-shadow: 0 0 15px rgba(255, 167, 38, 0.8);
+            box-shadow: 0 0 20px rgba(255, 167, 38, 0.8);
             animation: flicker 1s infinite alternate;
         }
 
         .flare {
             position: absolute;
-            width: 6px;
-            height: 6px;
+            width: 8px; /* Bigger flares */
+            height: 8px; /* Bigger flares */
             background-color: #ffa726;
             border-radius: 50%;
-            box-shadow: 0 0 15px rgba(255, 167, 38, 0.8);
+            box-shadow: 0 0 20px rgba(255, 167, 38, 0.8);
             opacity: 1;
             animation: rise 3s infinite ease-in;
         }
@@ -131,14 +131,14 @@
 
             // Position the flare at the base of the candle flame
             flare.style.left = `${50 + (Math.random() - 0.5) * 10}%`; // Randomize horizontal position
-            flare.style.top = `-20px`; // Start from the base of the flame
+            flare.style.top = `-30px`; // Start from the base of the flame (adjusted for bigger candle)
 
             // Randomize animation duration for variety
             const duration = 2 + Math.random() * 2; // 2-4 seconds
             flare.style.animationDuration = `${duration}s`;
 
             // Randomize flare size for a more natural look
-            const size = 4 + Math.random() * 4; // 4-8px
+            const size = 6 + Math.random() * 4; // 6-10px
             flare.style.width = `${size}px`;
             flare.style.height = `${size}px`;
 
