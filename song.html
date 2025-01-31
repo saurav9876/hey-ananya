@@ -18,12 +18,15 @@
             text-align: center;
             padding: 20px;
             position: relative;
+            overflow: hidden; /* Hide overflowing hearts */
         }
 
         .song-container {
             max-width: 800px;
             width: 100%;
             margin-bottom: 40px;
+            position: relative;
+            z-index: 1; /* Ensure the song container is above the hearts */
         }
 
         .song-container iframe {
@@ -44,17 +47,43 @@
             font-weight: bold;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+            z-index: 1; /* Ensure the button is above the hearts */
         }
 
         .next-button:hover {
             background-color: #ff1a1a;
             transform: scale(1.1);
         }
+
+        /* Falling Hearts */
+        .heart {
+            position: absolute;
+            top: -10%;
+            width: 40px; /* Adjust size as needed */
+            height: 40px;
+            background-image: url('https://raw.githubusercontent.com/saurav9876/hey-ananya/main/41d77a7c-338e-4891-9365-fc74c8951f7a.jpeg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10%) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
     </style>
     <!-- Add Google Font for a handwritten look -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Song Container -->
     <div class="song-container">
         <h1 style="font-size: 2.5rem; color: #ff4d4d; margin-bottom: 20px;">A Song for You 💖</h1>
         <!-- Replace the YouTube link with your desired song -->
@@ -67,5 +96,37 @@
 
     <!-- Next Button -->
     <a href="candle.html" class="next-button">Next</a>
+
+    <script>
+        // Function to create a heart
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+
+            // Randomize horizontal position
+            const left = Math.random() * 100; // Random position between 0% and 100%
+            heart.style.left = `${left}%`;
+
+            // Randomize animation duration for variety
+            const duration = 5 + Math.random() * 5; // 5-10 seconds
+            heart.style.animationDuration = `${duration}s`;
+
+            // Randomize size for a more natural look
+            const size = 30 + Math.random() * 20; // 30-50px
+            heart.style.width = `${size}px`;
+            heart.style.height = `${size}px`;
+
+            // Add heart to the body
+            document.body.appendChild(heart);
+
+            // Remove heart after animation ends
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
+        }
+
+        // Create hearts at regular intervals
+        setInterval(createHeart, 500); // Create a heart every 500ms
+    </script>
 </body>
 </html>
