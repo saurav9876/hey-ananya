@@ -1,4 +1,3 @@
-
 <!-- candle.html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -47,6 +46,22 @@
             opacity: 0.7;
             animation: rise 3s infinite linear;
         }
+        .fire-dots {
+            position: absolute;
+            top: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background-color: orange;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fire-rise 2s infinite linear;
+        }
+        @keyframes fire-rise {
+            0% { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateX(-50%) translateY(-100px) scale(1.5); opacity: 0; }
+        }
         @keyframes flicker {
             0% { transform: translateX(-50%) scale(1); opacity: 1; }
             50% { transform: translateX(-52%) scale(1.05); opacity: 0.9; }
@@ -72,6 +87,7 @@
     <div class="candle">
         <div class="flame"></div>
         <div class="flares"></div>
+        <div class="fire-dots"></div>
     </div>
     <div class="valentine-text">Will You Be My Valentine? 🥺💖</div>
 </body>
