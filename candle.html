@@ -54,12 +54,12 @@
 
         .flare {
             position: absolute;
-            width: 4px;
-            height: 4px;
+            width: 6px; /* Slightly larger for visibility */
+            height: 6px; /* Slightly larger for visibility */
             background-color: #ffa726;
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(255, 167, 38, 0.8);
-            opacity: 0;
+            box-shadow: 0 0 15px rgba(255, 167, 38, 0.8); /* Stronger glow */
+            opacity: 1; /* Start fully visible */
             animation: rise 3s infinite ease-in;
         }
 
@@ -99,13 +99,18 @@
             const flare = document.createElement('div');
             flare.classList.add('flare');
 
-            // Randomize horizontal position slightly around the candle flame
-            const leftOffset = 50 + (Math.random() - 0.5) * 10; // 50% ± 5%
-            flare.style.left = `${leftOffset}%`;
+            // Position the flare at the base of the candle flame
+            flare.style.left = `${50 + (Math.random() - 0.5) * 10}%`; // Randomize horizontal position
+            flare.style.top = `-20px`; // Start from the base of the flame
 
             // Randomize animation duration for variety
             const duration = 2 + Math.random() * 2; // 2-4 seconds
             flare.style.animationDuration = `${duration}s`;
+
+            // Randomize flare size for a more natural look
+            const size = 4 + Math.random() * 4; // 4-8px
+            flare.style.width = `${size}px`;
+            flare.style.height = `${size}px`;
 
             // Add flare to the body
             document.body.appendChild(flare);
@@ -116,8 +121,8 @@
             });
         }
 
-        // Create flares at regular intervals
-        setInterval(createFlare, 200); // Create a flare every 200ms
+        // Create flares at a faster rate
+        setInterval(createFlare, 50); // Create a flare every 50ms
     </script>
 </body>
 </html>
