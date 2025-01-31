@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glowing Candle with Rising Flares</title>
+    <title>Glowing Candle with Valentine's Message</title>
     <style>
         body {
             display: flex;
@@ -13,6 +13,8 @@
             background-color: #1a1a1a;
             margin: 0;
             overflow: hidden;
+            position: relative;
+            font-family: 'Great Vibes', cursive;
         }
 
         .candle {
@@ -54,13 +56,23 @@
 
         .flare {
             position: absolute;
-            width: 6px; /* Slightly larger for visibility */
-            height: 6px; /* Slightly larger for visibility */
+            width: 6px;
+            height: 6px;
             background-color: #ffa726;
             border-radius: 50%;
-            box-shadow: 0 0 15px rgba(255, 167, 38, 0.8); /* Stronger glow */
-            opacity: 1; /* Start fully visible */
+            box-shadow: 0 0 15px rgba(255, 167, 38, 0.8);
+            opacity: 1;
             animation: rise 3s infinite ease-in;
+        }
+
+        .valentine-message {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            color: #ff4d4d;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgba(255, 77, 77, 0.8), 0 0 20px rgba(255, 77, 77, 0.8);
+            animation: glow 2s infinite alternate;
         }
 
         @keyframes flicker {
@@ -88,10 +100,28 @@
                 opacity: 0;
             }
         }
+
+        @keyframes glow {
+            0% {
+                opacity: 0.8;
+                text-shadow: 0 0 10px rgba(255, 77, 77, 0.8), 0 0 20px rgba(255, 77, 77, 0.8);
+            }
+            100% {
+                opacity: 1;
+                text-shadow: 0 0 20px rgba(255, 77, 77, 0.8), 0 0 40px rgba(255, 77, 77, 0.8);
+            }
+        }
     </style>
+    <!-- Add Google Font for a romantic look -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="candle"></div>
+
+    <!-- Valentine's Message -->
+    <div class="valentine-message">
+        Would you be my Valentine this year? Please 🥺
+    </div>
 
     <script>
         // Function to create a flare
