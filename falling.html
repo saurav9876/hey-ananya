@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Ananya 💖 - Falling for You</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-image: url('https://raw.githubusercontent.com/saurav9876/hey-ananya/main/dfbf12b2-1000-46dc-8ef8-4c3a8c12a082.jpeg'); /* First image as background */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: 'Dancing Script', cursive; /* Handwritten font */
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Hide overflowing falling images */
+        }
+
+        .falling-image {
+            position: absolute;
+            top: -10%;
+            width: 50px; /* Smaller size */
+            height: auto;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10%) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .text {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff4d4d; /* Romantic red for the text */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: glow 2s infinite alternate;
+            position: relative;
+            z-index: 1; /* Ensure text is above the falling images */
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 77, 77, 0.8), 0 0 20px rgba(255, 77, 77, 0.8);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 77, 77, 0.8), 0 0 40px rgba(255, 77, 77, 0.8);
+            }
+            100% {
+                text-shadow: 0 0 10px rgba(255, 77, 77, 0.8), 0 0 20px rgba(255, 77, 77, 0.8);
+            }
+        }
+
+        /* Next Button */
+        .next-button {
+            position: fixed; /* Fixed position to keep it at the bottom */
+            bottom: 20px;
+            text-decoration: none;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            z-index: 1; /* Ensure the button is above the falling images */
+        }
+
+        .next-button:hover {
+            background-color: #ff1a1a;
+            transform: scale(1.1);
+        }
+    </style>
+    <!-- Add Google Font for a handwritten look -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Falling Images -->
+    <img src="https://raw.githubusercontent.com/saurav9876/hey-ananya/main/1000022061.jpeg" alt="Falling for You" class="falling-image" style="left: 5%; animation-duration: 8s;">
+    <img src="https://raw.githubusercontent.com/saurav9876/hey-ananya/main/1000022061.jpeg" alt="Falling for You" class="falling-image" style="left: 15%; animation-duration: 10s;">
+    <img src="https://raw.githubusercontent.com/saurav9876/hey-ananya/main/1000022061.jpeg" alt="Falling for You" class="falling-image" style="left: 25%; animation-duration: 12s;">
+    <img src="https://raw.githubusercontent.com/saurav9876/hey-ananya/main/1000022061.jpeg" alt="Falling for You" class="falling-image" style="left: 35%; animation-duration: 9s;">
+    <img src="https://raw.githubusercontent.com/saurav9876/hey-ananya/main/1000022061.jpeg" alt="Falling for You" class="falling-image" style="left: 45%; animation-duration: 11s;">
+    <img src="https://raw.githubusercontent.com/saurav9876/hey-ananya/main/1000022061.jpeg" alt="Falling for You" class="falling-image" style="left: 55%; animation-duration: 7s;">
+    <img src="https://raw.githubusercontent.com/saurav9876/hey-ananya/main/1000022061.jpeg" alt="Falling for You" class="falling-image" style="left: 65%; animation-duration: 10s;">
+    <img src="https://raw.githubusercontent.com/saurav9876/hey-ananya/main/1000022061.jpeg" alt="Falling for You" class="falling-image" style="left: 75%; animation-duration: 8s;">
+    <img src="https://raw.githubusercontent.com/saurav9876/hey-ananya/main/1000022061.jpeg" alt="Falling for You" class="falling-image" style="left: 85%; animation-duration: 12s;">
+    <img src="https://raw.githubusercontent.com/saurav9876/hey-ananya/main/1000022061.jpeg" alt="Falling for You" class="falling-image" style="left: 95%; animation-duration: 9s;">
+
+    <!-- Romantic Text -->
+    <div class="text">
+        Me falling for you?<br>
+        Even after all this time?<br>
+        Always!!
+    </div>
+
+    <!-- Next Button -->
+    <a href="candle.html" class="next-button">Next</a>
+</body>
+</html>
