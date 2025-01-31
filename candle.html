@@ -1,50 +1,73 @@
-<!-- candle.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Burning Candle for You</title>
+    <title>Glowing Candle</title>
     <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: black;
+            background-color: #1a1a1a;
+            margin: 0;
         }
+
         .candle {
             position: relative;
-            width: 40px;
-            height: 120px;
-            background-color: white;
-            border-radius: 10px;
+            width: 50px;
+            height: 150px;
+            background-color: #fff3e0;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 0 10px rgba(255, 223, 186, 0.8);
         }
-        .flame {
+
+        .candle::before {
+            content: '';
             position: absolute;
-            top: -45px;
+            top: -20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 30px;
-            height: 50px;
-            background: radial-gradient(circle, yellow 30%, orange 60%, red 90%);
+            width: 20px;
+            height: 40px;
+            background-color: #ffcc80;
             border-radius: 50% 50% 0 0;
-            animation: flicker 0.15s infinite alternate ease-in-out, glow 1s infinite alternate;
+            box-shadow: 0 0 20px rgba(255, 204, 128, 0.8);
+            animation: flicker 1.5s infinite alternate;
         }
+
+        .candle::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 20px;
+            background-color: #ffa726;
+            border-radius: 50% 50% 0 0;
+            box-shadow: 0 0 15px rgba(255, 167, 38, 0.8);
+            animation: flicker 1s infinite alternate;
+        }
+
         @keyframes flicker {
-            0% { transform: translateX(-50%) scale(1); opacity: 1; }
-            50% { transform: translateX(-52%) scale(1.05); opacity: 0.9; }
-            100% { transform: translateX(-50%) scale(1); opacity: 1; }
-        }
-        @keyframes glow {
-            0% { box-shadow: 0 0 10px rgba(255, 165, 0, 0.5); }
-            100% { box-shadow: 0 0 20px rgba(255, 140, 0, 0.8); }
+            0% {
+                transform: translateX(-50%) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(-50%) scale(1.1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateX(-50%) scale(0.9);
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="candle">
-        <div class="flame"></div>
-    </div>
+    <div class="candle"></div>
 </body>
 </html>
