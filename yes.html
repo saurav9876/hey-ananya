@@ -56,15 +56,55 @@
             }
         }
 
-        .confetti div:nth-child(odd) {
-            background-color: pink;
-            animation-duration: 4s;
+        /* Adding more colors for the confetti */
+        .confetti div:nth-child(1n) {
+            background-color: #FF5733; /* Orange */
         }
 
-        .confetti div:nth-child(even) {
-            background-color: blue;
-            animation-duration: 5s;
+        .confetti div:nth-child(2n) {
+            background-color: #C70039; /* Red */
         }
+
+        .confetti div:nth-child(3n) {
+            background-color: #FFC300; /* Yellow */
+        }
+
+        .confetti div:nth-child(4n) {
+            background-color: #900C3F; /* Dark Pink */
+        }
+
+        .confetti div:nth-child(5n) {
+            background-color: #581845; /* Purple */
+        }
+
+        .confetti div:nth-child(6n) {
+            background-color: #DAF7A6; /* Light Green */
+        }
+
+        .confetti div:nth-child(7n) {
+            background-color: #F1C40F; /* Bright Yellow */
+        }
+
+        .confetti div:nth-child(8n) {
+            background-color: #1F618D; /* Blue */
+        }
+
+        .confetti div:nth-child(9n) {
+            background-color: #7D3C98; /* Purple */
+        }
+
+        .confetti div:nth-child(10n) {
+            background-color: #28B463; /* Green */
+        }
+
+        .confetti div:nth-child(11n) {
+            background-color: #FF69B4; /* Hot Pink */
+        }
+
+        .confetti div:nth-child(12n) {
+            background-color: #F39C12; /* Golden Yellow */
+        }
+
     </style>
 </head>
 <body>
@@ -76,7 +116,7 @@
         const confettiContainer = document.getElementById('confetti');
 
         function generateConfetti() {
-            for (let i = 0; i < 200; i++) {
+            for (let i = 0; i < 300; i++) {
                 let confettiPiece = document.createElement('div');
                 confettiPiece.style.left = Math.random() * window.innerWidth + 'px';
                 confettiPiece.style.animationDelay = Math.random() * 3 + 's';
