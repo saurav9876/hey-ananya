@@ -1,32 +1,53 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine?</title>
+    <title>Hey Ananya 👋</title>
     <style>
         body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://github.com/saurav9876/hey-ananya/main/41d77a7c-338e-4891-9365-fc74c8951f7a.jpeg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: 'Arial', sans-serif;
             text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: pink;
         }
-        h1 {
+
+        .message {
             font-size: 3rem;
-            color: red;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
         }
-        .btn {
+
+        .surprise-button {
+            text-decoration: none;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
             font-size: 1.5rem;
-            padding: 10px 20px;
-            background-color: white;
-            border: 2px solid red;
-            cursor: pointer;
-            margin-top: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .surprise-button:hover {
+            background-color: #ff1a1a;
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-    <h1>Will You Be My Valentine? 💖</h1>
-    <a href="candle.html"><button class="btn">Click for a Surprise</button></a>
+    <div class="message">Hey Ananya 👋</div>
+    <a href="ananya.html" class="surprise-button">Click for Surprise</a>
 </body>
 </html>
