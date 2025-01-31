@@ -1,44 +1,32 @@
+<!-- index.html -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Burning Candle for You</title>
+    <title>Be My Valentine?</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: black;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: pink;
         }
-        .candle {
-            position: relative;
-            width: 20px;
-            height: 60px;
+        h1 {
+            font-size: 3rem;
+            color: red;
+        }
+        .btn {
+            font-size: 1.5rem;
+            padding: 10px 20px;
             background-color: white;
-            border-radius: 5px;
-        }
-        .flame {
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 15px;
-            height: 25px;
-            background-color: orange;
-            border-radius: 50% 50% 0 0;
-            animation: flicker 1s infinite alternate;
-        }
-        @keyframes flicker {
-            0% { transform: translateX(-50%) scaleY(1); background-color: orange; }
-            50% { transform: translateX(-48%) scaleY(1.1); background-color: yellow; }
-            100% { transform: translateX(-50%) scaleY(1); background-color: orange; }
+            border: 2px solid red;
+            cursor: pointer;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="candle">
-        <div class="flame"></div>
-    </div>
+    <h1>Will You Be My Valentine? 💖</h1>
+    <a href="candle.html"><button class="btn">Click for a Surprise</button></a>
 </body>
 </html>
