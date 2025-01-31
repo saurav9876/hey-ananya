@@ -10,13 +10,15 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             background-color: #ffe6e6; /* Soft pink background */
             color: #4d2600; /* Brownish text color for a handwritten feel */
             font-family: 'Dancing Script', cursive; /* Handwritten font */
             text-align: center;
             padding: 20px;
+            position: relative;
+            overflow: hidden; /* Hide overflowing snowflakes */
         }
 
         .message {
@@ -24,6 +26,8 @@
             line-height: 1.6;
             max-width: 600px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            margin-bottom: 80px; /* Add space for the fixed button */
+            position: relative;
         }
 
         .message p {
@@ -34,6 +38,7 @@
             font-size: 2.5rem;
             font-weight: bold;
             color: #ff4d4d; /* Romantic red for the first line */
+            animation: glitter 2s infinite alternate;
         }
 
         .message p:last-child {
@@ -42,42 +47,92 @@
             color: #ff4d4d; /* Romantic red for the last line */
         }
 
-        /* Add a subtle heart animation */
-        .heart {
-            color: #ff4d4d;
-            font-size: 2rem;
-            animation: float 3s infinite ease-in-out;
-        }
-
-        @keyframes float {
+        /* Glitter Animation */
+        @keyframes glitter {
             0% {
-                transform: translateY(0);
+                text-shadow: 0 0 10px rgba(255, 77, 77, 0.8), 0 0 20px rgba(255, 77, 77, 0.8);
             }
             50% {
-                transform: translateY(-10px);
+                text-shadow: 0 0 20px rgba(255, 77, 77, 0.8), 0 0 40px rgba(255, 77, 77, 0.8);
             }
             100% {
-                transform: translateY(0);
+                text-shadow: 0 0 10px rgba(255, 77, 77, 0.8), 0 0 20px rgba(255, 77, 77, 0.8);
             }
+        }
+
+        /* Snowflakes (Falling Ice) */
+        .snowflake {
+            position: absolute;
+            top: -10%;
+            color: #a6d8ff; /* Light blue for ice/snowflakes */
+            font-size: 20px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10%) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Next Button */
+        .next-button {
+            position: fixed; /* Fixed position to keep it at the bottom right */
+            bottom: 20px;
+            right: 20px;
+            text-decoration: none;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .next-button:hover {
+            background-color: #ff1a1a;
+            transform: scale(1.1);
         }
     </style>
     <!-- Add Google Font for a handwritten look -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Snowflakes (Falling Ice) -->
+    <div class="snowflake" style="left: 10%; animation-duration: 10s;">❄️</div>
+    <div class="snowflake" style="left: 20%; animation-duration: 8s;">❄️</div>
+    <div class="snowflake" style="left: 30%; animation-duration: 12s;">❄️</div>
+    <div class="snowflake" style="left: 40%; animation-duration: 9s;">❄️</div>
+    <div class="snowflake" style="left: 50%; animation-duration: 11s;">❄️</div>
+    <div class="snowflake" style="left: 60%; animation-duration: 7s;">❄️</div>
+    <div class="snowflake" style="left: 70%; animation-duration: 10s;">❄️</div>
+    <div class="snowflake" style="left: 80%; animation-duration: 8s;">❄️</div>
+    <div class="snowflake" style="left: 90%; animation-duration: 12s;">❄️</div>
+
+    <!-- Message -->
     <div class="message">
-        <p>I know you will feel it is cheesy and i'm sorry ...... :)</p>
+        <p>I know you will feel it is cheesy and I'm sorry...... :)</p>
         <p>You are the kind of person who lights up the room just by being in it.</p>
-        <p>You certainly lights up my life and me</p>
-        <p>I like how emotional you are and specially how close you are to your friends,</p>
+        <p>You certainly light up my life and me.</p>
+        <p>I like how emotional you are and especially how close you are to your friends.</p>
         <p>Your laughter is the most beautiful melody I've ever heard.</p>
         <p>You have a heart so pure and kind,</p>
         <p>it makes everyone around you feel special.</p>
         <p>Your strength inspires me,</p>
         <p>I feel incredibly lucky to know you,</p>
-        <p>Thank you for existing</p>
+        <p>Thank you for existing.</p>
         <p>With all my heart,</p>
         <p>💖</p>
     </div>
+
+    <!-- Next Button -->
+    <a href="candle.html" class="next-button">Next</a>
 </body>
 </html>
