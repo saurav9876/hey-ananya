@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Burning Candle for You</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+        .candle {
+            position: relative;
+            width: 20px;
+            height: 60px;
+            background-color: white;
+            border-radius: 5px;
+        }
+        .flame {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 25px;
+            background-color: orange;
+            border-radius: 50% 50% 0 0;
+            animation: flicker 1s infinite alternate;
+        }
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scaleY(1); background-color: orange; }
+            50% { transform: translateX(-48%) scaleY(1.1); background-color: yellow; }
+            100% { transform: translateX(-50%) scaleY(1); background-color: orange; }
+        }
+    </style>
+</head>
+<body>
+    <div class="candle">
+        <div class="flame"></div>
+    </div>
+</body>
+</html>
