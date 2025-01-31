@@ -8,24 +8,27 @@
         body {
             display: flex;
             flex-direction: column;
-            justify-content: top;
+            justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             background-image: url('https://raw.githubusercontent.com/saurav9876/hey-ananya/main/41d77a7c-338e-4891-9365-fc74c8951f7a.jpeg'); /* Use the raw image URL */
             background-size: cover;
-            background-position: bottom;
+            background-position: center 60%; /* Shift the image further up */
             color: white;
             font-family: 'Arial', sans-serif;
             text-align: center;
+            overflow: hidden; /* Hide overflowing hearts */
+            position: relative;
         }
 
         .message {
             font-size: 3rem;
             font-weight: bold;
             color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 0 10px rgba(255, 77, 77, 0.8), 0 0 20px rgba(255, 77, 77, 0.8);
             margin-bottom: 20px;
+            animation: glow-text 2s infinite alternate;
         }
 
         .surprise-button {
@@ -38,15 +41,71 @@
             font-weight: bold;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s ease, transform 0.3s ease;
+            animation: pulse 1.5s infinite;
         }
 
         .surprise-button:hover {
             background-color: #ff1a1a;
             transform: scale(1.1);
         }
+
+        /* Falling Hearts Animation */
+        .heart {
+            position: absolute;
+            top: -10%;
+            color: #ff4d4d;
+            font-size: 20px;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10%) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Glowing Text Animation */
+        @keyframes glow-text {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 77, 77, 0.8), 0 0 20px rgba(255, 77, 77, 0.8);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(255, 77, 77, 0.8), 0 0 40px rgba(255, 77, 77, 0.8);
+            }
+        }
+
+        /* Pulsating Button Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Falling Hearts -->
+    <div class="heart" style="left: 10%; animation-delay: 0s;">❤️</div>
+    <div class="heart" style="left: 20%; animation-delay: 1s;">❤️</div>
+    <div class="heart" style="left: 30%; animation-delay: 2s;">❤️</div>
+    <div class="heart" style="left: 40%; animation-delay: 3s;">❤️</div>
+    <div class="heart" style="left: 50%; animation-delay: 4s;">❤️</div>
+    <div class="heart" style="left: 60%; animation-delay: 5s;">❤️</div>
+    <div class="heart" style="left: 70%; animation-delay: 6s;">❤️</div>
+    <div class="heart" style="left: 80%; animation-delay: 7s;">❤️</div>
+    <div class="heart" style="left: 90%; animation-delay: 8s;">❤️</div>
+
+    <!-- Message and Button -->
     <div class="message">Hey Ananya 👋</div>
     <a href="ananya.html" class="surprise-button">Click for Surprise</a>
 </body>
